@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 
 import  type {Student}  from '../types/Students'
+import { useNavigate } from 'react-router-dom'
 type StudentForm =Omit<Student,"id">
 
-const StudentPage = () => {
+type Props ={
+  students:Student[],
+  setStudents:React.Dispatch<React.SetStateAction<Student[]>>
+}
+
+const StudentPage = ({students,setStudents}:Props) => {
 
     const [stu,setStu]=useState<StudentForm>({
     name:"",
     email:"",
     course:"",
 })
-const [students,setStudents]=useState<Student[]>([])
 
+const navigate=useNavigate()
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>)=>{
     setStu({...stu,[e.target.id]:e.target.value})
 }
@@ -24,8 +30,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
     }
 
     setStudents([...students,stuObj])
+    navigate('/view')
 }
-
 
   return (
     <div>
