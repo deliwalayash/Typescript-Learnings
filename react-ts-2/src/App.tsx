@@ -15,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<StudentPage students={students} setStudents={setStudents}></StudentPage>}></Route>
         <Route path='/view' element={<ViewStudents students={students} setStudents={setStudents}></ViewStudents>}></Route>
-        <Route path='/edit' element={<EditForm></EditForm>}></Route>
+        <Route path='/edit/:id' element={<EditForm students={students} setStudents={setStudents}></EditForm>}></Route>
       </Routes>
       </BrowserRouter>
       
