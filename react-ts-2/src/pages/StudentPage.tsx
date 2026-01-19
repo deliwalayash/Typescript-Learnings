@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import  type {Student}  from '../types/Students'
 import { useNavigate } from 'react-router-dom'
+import GeneriList from '../components/GenericList'
 type StudentForm =Omit<Student,"id">
 
 type Props ={
@@ -52,6 +53,15 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
           <br /><br />
           <button type='submit'>Submit</button>
         </form>
+        <GeneriList
+  items={[123,255.2556,3.5555]}
+  renderItem={(n) => <span>{n.toFixed(1)}</span>}
+/>
+
+<GeneriList
+  items={[{id:1,name:"yash"},"banana","green"]}
+  renderItem={(s) => <h1>{s.name}</h1>}
+/>
     </div>
   )
 }
