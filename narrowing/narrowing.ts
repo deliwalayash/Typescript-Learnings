@@ -28,3 +28,26 @@ function printPerson(person: Admin | User) {
 
 printLength(222)
 printLength("i am yash deliwala")
+
+type Circle = {
+  kind: "circle"
+  radius: number
+}
+
+type Square = {
+  kind: "square"
+  size: number
+}
+
+type Shape = Circle | Square
+
+function area(shape: Shape) {
+   if("radius" in shape){
+    console.log("Area:",3.14 * shape.radius * shape.radius)
+   }
+   else{
+    console.log("Area:",shape.size*2)
+   }
+}
+
+area({kind:"circle",radius:5})
